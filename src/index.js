@@ -1,5 +1,6 @@
 import { createDeck } from './deck';
 import Player from './Player';
+import './main.css';
 
 const app = document.getElementById('app');
 const deck = createDeck();
