@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "classes": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"]
+  },
+  "extends": ["eslint:recommended"],
+  "eslintIgnore": ["webpack.config.js"]
+}
