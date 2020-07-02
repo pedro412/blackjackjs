@@ -1,47 +1,10 @@
 import { createDeck } from './deck';
 import Player from './Player';
 import './main.css';
+import { drawCard, getAvailableCards } from './cards';
 
-const app = document.getElementById('app');
+export const app = document.getElementById('app');
 const deck = createDeck();
-
-console.log(deck);
-
-app.appendChild(deck);
-
-const cards = document.querySelectorAll('.deck-card');
-let avaibleCards = cards;
-
-const totalCardsNode = document.createElement('div');
-const totalCardsTitle = document.createElement('h3');
-
-const setReamainingCards = (number) => {
-  totalCardsTitle.innerHTML = `Remaining cards: ${number}`;
-  totalCardsNode.appendChild(totalCardsTitle);
-  app.appendChild(totalCardsNode);
-};
-
-const getAvailableCards = () => {
-  const avaibleCards = [];
-  cards.forEach((c) => {
-    if (!c.classList.contains('used')) {
-      avaibleCards.push(c);
-    }
-  });
-  setReamainingCards(avaibleCards.length);
-  return avaibleCards;
-};
-
-export const drawCard = () => {
-  const numberOfAvailableCards = avaibleCards.length;
-  const randomNumber = Math.floor(Math.random() * numberOfAvailableCards) + 1;
-  const card = avaibleCards[randomNumber];
-  card.classList.add('used');
-  avaibleCards = getAvailableCards();
-  return card;
-};
-
-setReamainingCards(avaibleCards.length);
 
 const board = document.createElement('div');
 board.classList.add('board');
@@ -60,4 +23,25 @@ app.appendChild(board);
 const player1 = new Player('player 1');
 const dealer = new Player('dealer');
 
-console.log(player1, dealer);
+const boton = document.createElement('button');
+boton.classList.add('btn-primary');
+boton.innerText = 'HIT';
+boton.addEventListener('click', () => {
+  const cards = document.querySelectorAll('.deck-card');
+  const availableCards = getAvailableCards(cards);
+  player1.draw(availableCards);
+  score.innerText = `Total: ${player1.total}`;
+});
+
+player1Board.appendChild(boton);
+
+const score = document.createElement('h3');
+score.innerText = player1.total;
+
+const name = document.createElement('h2');
+name.innerText = 'Your cards';
+player1Board.appendChild(name);
+
+player1Board.appendChild(score);
+
+app.appendChild(deck);

@@ -1,7 +1,8 @@
-const symbols = ['♠', '♥', '♦', '♣'];
+const symbols = ['⚡️', '🚀', '✨', '🌈'];
 
 export const createDeck = () => {
   const deckNode = document.createElement('div');
+  deckNode.classList.add('deck-container');
   symbols.forEach((symbol) => {
     const node = document.createElement('div');
     node.classList.add('deck-set');

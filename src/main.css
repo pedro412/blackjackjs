@@ -4,7 +4,19 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  background-color: #202442;
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+  padding-top: 15px;
+}
+
+.deck-container {
+  margin: 20px 0;
 }
 
 .deck-set {
@@ -17,34 +29,93 @@ body {
 }
 
 .deck-card {
-  background-color: #fff;
-  height: 50px;
+  background-color: #202442;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px;
   width: 50px;
-  border: solid 1px #ececec;
-  color: black;
+  border: solid 1px #4e7cff;
+  color: #f7f7f7;
   font-size: 18px;
+  border-radius: 12px;
 }
 
 .used {
-  background-color: #ececec;
-  color: black;
+  background-color: #4e7cff;
+  color: #fff;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
 
 .board {
-  width: 80%;
-  margin: auto;
-  border: solid 1px #ececec;
-  padding: 10px;
 }
 
 .player-board {
   margin: auto;
   width: 80%;
   max-width: 800px;
-  border: solid 1px #ececec;
   min-height: 160px;
+  margin-top: 20px;
+  background-color: #2d325a;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  border-radius: 60px;
+  transition: 0.1s ease-out;
+}
+
+button:active {
+  transform: scale(1.08);
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+button:focus {
+  outline: none;
+}
+
+.mr-2 {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #4e7cff;
+}
+
+.btn-secondary {
+  background-color: #7033ff;
+}
+
+.btn-danger {
+  background-color: #e94558;
+}
+
+.action-bar {
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 2px #4e7cff; */
+  background-color: #2d325a;
+  /* color: black; */
+  bottom: 0px;
 }

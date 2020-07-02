@@ -1,4 +1,4 @@
-import { drawCard } from './index';
+import { drawCard } from './cards';
 
 class Player {
   moves = 5;
@@ -9,9 +9,9 @@ class Player {
     this.playerName = playerName;
   }
 
-  draw = function () {
+  draw = function (availableCards) {
     if (this.moves > 0) {
-      const card = drawCard();
+      const card = drawCard(availableCards);
       this.cards.push(card);
       this._addToTotal();
       this.moves = this.moves - 1;
@@ -21,9 +21,16 @@ class Player {
   _addToTotal = function () {
     let counter = 0;
     this.cards.forEach((c) => {
-      const number = c.innerHTML.slice(2);
+      const number = c.innerHTML.slice(2).trim();
+
       if (['J', 'K', 'Q'].includes(number)) {
         counter = counter + 10;
+      } else if (['A'].includes(number)) {
+        if (counter + 11 > 21) {
+          counter = counter + 1;
+        } else {
+          counter = counter + 11;
+        }
       } else {
         counter = counter + parseInt(number);
       }
