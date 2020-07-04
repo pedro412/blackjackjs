@@ -11,13 +11,44 @@
 <body>
     <h1 class="title">Blackjack JS 🎰</h1>
 
+    <div class="player-board">
+        <div id="dealerInfo" class="player-info">
+            <h2>Dealer</h2>
+            <h3 id="dealerScore">0</h3>
+        </div>
+        <div id="dealerCards" class="player-cards">
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+        </div>
+    </div>
+
+    <div class="player-board">
+        <div id="playerInfo" class="player-info">
+            <h2>Player 1</h2>
+            <h3 id="playerScore">0</h3>
+        </div>
+        <div id="playerCards" class="player-cards">
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+            <div class="player-card"></div>
+        </div>
+        <div></div>
+        <div class="action-bar">
+            <button id="hit" class="btn-primary mr-2">Hit</button>
+            <button id="standButton" class="btn-secondary mr-2">Stand</button>
+            <button id="newGame" class="btn-danger mr-2">New game</button>
+        </div>
+    </div>
+
     <div id="app"></div>
 
-    <div class="action-bar">
-        <button class="btn-primary mr-2">Hit</button>
-        <button class="btn-secondary mr-2">Stand</button>
-        <button class="btn-danger mr-2">New game</button>
-    </div>
+
+
 
 </body>
 

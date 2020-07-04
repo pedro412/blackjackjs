@@ -9,16 +9,16 @@ class Player {
     this.playerName = playerName;
   }
 
-  draw = function (availableCards) {
+  draw(availableCards) {
     if (this.moves > 0) {
       const card = drawCard(availableCards);
       this.cards.push(card);
       this._addToTotal();
       this.moves = this.moves - 1;
     }
-  };
+  }
 
-  _addToTotal = function () {
+  _addToTotal() {
     let counter = 0;
     this.cards.forEach((c) => {
       const number = c.innerHTML.slice(2).trim();
@@ -36,7 +36,13 @@ class Player {
       }
     });
     this.total = counter;
-  };
+  }
+
+  reset() {
+    this.moves = 5;
+    this.total = 0;
+    this.cards = [];
+  }
 }
 
 export default Player;

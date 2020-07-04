@@ -49,10 +49,9 @@ body {
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
 
-.board {
-}
-
 .player-board {
+  display: grid;
+  grid-template-columns: 25% 75%;
   margin: auto;
   width: 80%;
   max-width: 800px;
@@ -65,6 +64,48 @@ body {
     0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
 
+.player-info {
+  position: relative;
+  text-align: center;
+}
+
+.player-info h2 {
+  font-size: 30px;
+  margin-top: 10px;
+}
+.player-info h3 {
+  font-size: 55px;
+}
+
+.player-cards {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-card {
+  background-color: #202442;
+  height: 95%;
+  width: 90px;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  border: solid 1px #4e7cff;
+  color: #f7f7f7;
+  font-size: 18px;
+  border-radius: 12px;
+  font-size: 25px;
+  opacity: 1;
+  transition: 0.2s ease-in;
+}
+
+.player-card span {
+  transition: 0.2s ease-in;
+}
+
 button {
   border: none;
   background-color: rgba(0, 0, 0, 0);
@@ -75,16 +116,22 @@ button {
   font-weight: bold;
   border-radius: 60px;
   transition: 0.1s ease-out;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+  background-color: #848484;
+  color: #666666;
 }
 
 button:active {
-  transform: scale(1.08);
+  transform: scale(0.9);
+  box-shadow: none;
 }
 
 button:hover {
   cursor: pointer;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
 
 button:focus {
@@ -108,14 +155,20 @@ button:focus {
 }
 
 .action-bar {
-  padding: 20px;
-  position: fixed;
-  width: 100%;
+  padding: 10px;
+  /* width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
   /* border: solid 2px #4e7cff; */
-  background-color: #2d325a;
+  /* background-color: #2d325a; */
   /* color: black; */
   bottom: 0px;
+}
+
+.player-info span {
+  position: absolute;
+  top: 40px;
+  font-size: 50px;
+  left: 150px;
 }

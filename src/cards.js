@@ -16,3 +16,11 @@ export const drawCard = (avaibleCards) => {
   avaibleCards = getAvailableCards();
   return card;
 };
+
+export const resetCards = (cards) => {
+  cards?.forEach((c) => {
+    if (c.classList.contains('used')) {
+      c.classList.remove('used');
+    }
+  });
+};
