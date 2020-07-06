@@ -59,7 +59,10 @@ const resetBoard = () => {
   });
 };
 
+let isNewGame = true;
+
 const newGame = () => {
+  isNewGame = true;
   let isPlayer = false;
   let counter = 0;
   player1.reset();
@@ -74,6 +77,9 @@ const newGame = () => {
   playerScore.innerText = '0';
   for (let i = 1; i < 5; i++) {
     setTimeout(() => {
+      if (i > 3) {
+        isNewGame = false;
+      }
       if (isPlayer) {
         drawPlayerCard('player1');
         isPlayer = false;
@@ -84,6 +90,7 @@ const newGame = () => {
     }, (counter += 500));
   }
   clearTimeout();
+
 };
 
 const playerWin = (player) => {
@@ -140,7 +147,7 @@ const handleWin = () => {
     playerWin('player1');
   }
 
-  if (dealerTotal === player1Total) {
+  if (dealerTotal === player1Total && !isNewGame) {
     disableButtons();
   }
 };
